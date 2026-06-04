@@ -1,0 +1,21 @@
+.heading{
+    font-size: 50px;
+    color: #000000;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #d68080;
+}
+
+.init-text{
+    font-size: 20px;
+    color: #000000;
+    font-family: Arial, sans-serif;
+    margin-top: 20px;
+    margin-bottom: 20px;}
+.circle-clip {
+  /* Syntax: circle(radius at x-axis y-axis) */
+  clip-path: circle(50% at 50% 50%);
+  justify-content: right;
+}
