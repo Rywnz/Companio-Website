@@ -8,6 +8,13 @@ body {
     background-color: #d68080;
 }
 
+.container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 20px;
+}
+
 .init-text{
     font-size: 20px;
     color: #000000;
@@ -17,5 +24,6 @@ body {
 .circle-clip {
   /* Syntax: circle(radius at x-axis y-axis) */
   clip-path: circle(50% at 50% 50%);
-  justify-content: right;
+  justify-content: center;
+  height: 150px;
 }
