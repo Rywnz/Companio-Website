@@ -259,8 +259,46 @@ header.header-scrolled {
 }
 
 .feature-icon {
-    font-size: 44px;
-    margin-bottom: 18px;
+    width: 56px;
+    height: 56px;
+    margin: 0 auto 18px;
+    background: #d68080;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-chat::after {
+    content: '';
+    width: 28px;
+    height: 28px;
+    background: rgba(255,255,255,0.9);
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 75%, 25% 100%, 25% 75%, 0% 75%, 0% 25%);
+}
+
+.icon-emergency::after {
+    content: '';
+    width: 28px;
+    height: 28px;
+    background: rgba(255,255,255,0.9);
+    clip-path: polygon(50% 0%, 80% 20%, 100% 50%, 80% 80%, 50% 100%, 20% 80%, 0% 50%, 20% 20%);
+}
+
+.icon-order::after {
+    content: '';
+    width: 28px;
+    height: 28px;
+    background: rgba(255,255,255,0.9);
+    clip-path: polygon(20% 0%, 80% 0%, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0% 80%, 0% 20%);
+}
+
+.icon-match::after {
+    content: '';
+    width: 28px;
+    height: 28px;
+    background: rgba(255,255,255,0.9);
+    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
 }
 
 .feature-card h3 {
