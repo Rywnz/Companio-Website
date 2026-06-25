@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login — Companio</title>
+    <link rel="stylesheet" href="Login.css">
+    <link rel="icon" type="image/x-icon" href="../Assets/Companio Favicon.png">
+    <script src="Login.js" defer></script>
+</head>
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="logo-area">
+            <img src="../Assets/Companio (1).png" alt="Companio Logo" class="circle-clip">
+            <h1>Companio</h1>
+        </div>
+        <nav>
+            <a href="../Home%20Page/index.html">Home</a>
+            <a href="../About-Page/about.html">About</a>
+            <a href="../Get-Started/Get-started.html">Get Started</a>
+            <a href="#" class="cta-btn active">Login</a>
+        </nav>
+    </header>
+
+    <!-- PAGE BANNER -->
+    <section class="page-banner">
+        <h1>Welcome Back</h1>
+        <p>Sign in to your account to connect with your community.</p>
+    </section>
+
+    <!-- LOGIN FORM -->
+    <section class="login-section">
+        <div class="login-container">
+            <div class="form-header">
+                <h2>Sign In</h2>
+                <p>Enter your credentials to access your account.</p>
+            </div>
+
+            <form id="login-form" novalidate>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" name="email" placeholder="e.g. john@email.com" required autocomplete="email">
+                    <span class="error-msg" id="email-error"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Enter your password" required autocomplete="current-password">
+                    <span class="error-msg" id="password-error"></span>
+                </div>
+
+                <div class="form-options">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="remember" name="remember">
+                        <span>Remember me</span>
+                    </label>
+                    <a href="#" class="forgot-link">Forgot password?</a>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-full">Sign In</button>
+
+                <div class="form-divider">
+                    <span>or</span>
+                </div>
+
+                <p class="signup-prompt">
+                    Don't have an account? <a href="../Get-Started/Get-started.html">Create one here</a>
+                </p>
+            </form>
+        </div>
+    </section>
+
+    <!-- FEATURES REMINDER -->
+    <section class="features-reminder">
+        <h2>Why Join Companio?</h2>
+        <div class="reminder-grid">
+            <div class="reminder-card">
+                <div class="reminder-icon icon-connect"></div>
+                <h3>Stay Connected</h3>
+                <p>Chat, video call, and build friendships with people who share your interests.</p>
+            </div>
+            <div class="reminder-card">
+                <div class="reminder-icon icon-safe"></div>
+                <h3>Stay Safe</h3>
+                <p>One-tap emergency alerts keep you and your loved ones protected.</p>
+            </div>
+            <div class="reminder-card">
+                <div class="reminder-icon icon-easy"></div>
+                <h3>Stay Independent</h3>
+                <p>Order essentials, join events, and access support — all in one place.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <img src="../Assets/Companio (1).png" alt="Companio Logo" class="footer-logo">
+                <p>Companio — connecting elders, building community.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <a href="../Home%20Page/index.html">Home</a>
+                <a href="../About-Page/about.html">About</a>
+                <a href="../Get-Started/Get-started.html">Get Started</a>
+                <a href="#">Login</a>
+            </div>
+            <div class="footer-links">
+                <h4>Support</h4>
+                <a href="#">Help Centre</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Use</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 Companio. All rights reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

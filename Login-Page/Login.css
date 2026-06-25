@@ -1,0 +1,485 @@
+/* === RESET & BASE === */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    background-color: #faf5f2;
+    color: #3d2c2e;
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+/* === HEADER === */
+header {
+    background: #d68080;
+    padding: 16px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    transition: padding 0.3s ease, box-shadow 0.3s ease;
+}
+
+header.header-scrolled {
+    padding: 10px 5%;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.logo-area .circle-clip {
+    width: 52px;
+    height: 52px;
+    clip-path: circle(50% at 50% 50%);
+    object-fit: cover;
+}
+
+.logo-area h1 {
+    font-size: 28px;
+    color: #fff;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+nav a {
+    color: rgba(255,255,255,0.85);
+    text-decoration: none;
+    margin-left: 24px;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 8px 18px;
+    border-radius: 20px;
+    transition: all 0.3s;
+}
+
+nav a:hover,
+nav a.active {
+    color: #fff;
+    background: rgba(255,255,255,0.15);
+}
+
+nav a.cta-btn {
+    background: #fff;
+    color: #d68080;
+    font-weight: 600;
+}
+
+nav a.cta-btn:hover {
+    background: #f5e6e6;
+}
+
+/* === PAGE BANNER === */
+.page-banner {
+    background: #d68080;
+    color: #fff;
+    text-align: center;
+    padding: 70px 5%;
+}
+
+.page-banner h1 {
+    font-size: 44px;
+    font-weight: 800;
+    margin-bottom: 14px;
+}
+
+.page-banner p {
+    font-size: 18px;
+    color: rgba(255,255,255,0.85);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* === LOGIN SECTION === */
+.login-section {
+    background: #faf5f2;
+    padding: 80px 5%;
+}
+
+.login-container {
+    max-width: 480px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 20px;
+    padding: 50px 48px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+}
+
+.form-header {
+    text-align: center;
+    margin-bottom: 36px;
+}
+
+.form-header h2 {
+    font-size: 30px;
+    color: #2c1e20;
+    margin-bottom: 8px;
+}
+
+.form-header p {
+    font-size: 15px;
+    color: #5a4a4c;
+}
+
+/* === FORM ELEMENTS === */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: 600;
+    color: #3d2c2e;
+    margin-bottom: 6px;
+}
+
+.form-group input[type="email"],
+.form-group input[type="password"] {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid #e8d5d5;
+    border-radius: 10px;
+    font-size: 15px;
+    font-family: inherit;
+    color: #3d2c2e;
+    background: #faf5f2;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    outline: none;
+}
+
+.form-group input:focus {
+    border-color: #d68080;
+    box-shadow: 0 0 0 3px rgba(214,128,128,0.15);
+    background: #fff;
+}
+
+.form-group input.error {
+    border-color: #e74c3c;
+    background: #fff5f5;
+}
+
+.error-msg {
+    display: block;
+    font-size: 13px;
+    color: #e74c3c;
+    margin-top: 4px;
+    min-height: 18px;
+}
+
+/* === FORM OPTIONS === */
+.form-options {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 24px;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+    color: #3d2c2e;
+    cursor: pointer;
+}
+
+.checkbox-label input[type="checkbox"] {
+    accent-color: #d68080;
+    width: 18px;
+    height: 18px;
+}
+
+.forgot-link {
+    font-size: 14px;
+    color: #d68080;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.forgot-link:hover {
+    text-decoration: underline;
+}
+
+/* === BUTTONS === */
+.btn {
+    display: inline-block;
+    padding: 14px 36px;
+    border-radius: 50px;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.25s;
+    cursor: pointer;
+    border: none;
+    font-family: inherit;
+}
+
+.btn-primary {
+    background: #d68080;
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background: #c06f6f;
+    transform: translateY(-1px);
+}
+
+.btn-full {
+    width: 100%;
+    text-align: center;
+}
+
+/* === FORM DIVIDER === */
+.form-divider {
+    display: flex;
+    align-items: center;
+    margin: 24px 0;
+}
+
+.form-divider::before,
+.form-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: #e8d5d5;
+}
+
+.form-divider span {
+    padding: 0 16px;
+    font-size: 14px;
+    color: #a09092;
+}
+
+/* === SIGNUP PROMPT === */
+.signup-prompt {
+    text-align: center;
+    font-size: 14px;
+    color: #5a4a4c;
+}
+
+.signup-prompt a {
+    color: #d68080;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.signup-prompt a:hover {
+    text-decoration: underline;
+}
+
+/* === FEATURES REMINDER === */
+.features-reminder {
+    background: #fff;
+    padding: 80px 5%;
+    text-align: center;
+}
+
+.features-reminder h2 {
+    font-size: 36px;
+    color: #2c1e20;
+    margin-bottom: 50px;
+}
+
+.features-reminder h2::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: #d68080;
+    margin: 14px auto 0;
+    border-radius: 2px;
+}
+
+.reminder-grid {
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    max-width: 900px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+}
+
+.reminder-card {
+    background: #faf5f2;
+    border-radius: 16px;
+    padding: 36px 28px;
+    width: 260px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.reminder-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(214,128,128,0.15);
+}
+
+.reminder-icon {
+    width: 56px;
+    height: 56px;
+    margin: 0 auto 18px;
+    background: #d68080;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-connect::after {
+    content: '';
+    width: 28px;
+    height: 28px;
+    background: rgba(255,255,255,0.9);
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 75%, 25% 100%, 25% 75%, 0% 75%, 0% 25%);
+}
+
+.icon-safe::after {
+    content: '';
+    width: 28px;
+    height: 28px;
+    background: rgba(255,255,255,0.9);
+    clip-path: polygon(50% 0%, 80% 20%, 100% 50%, 80% 80%, 50% 100%, 20% 80%, 0% 50%, 20% 20%);
+}
+
+.icon-easy::after {
+    content: '';
+    width: 28px;
+    height: 28px;
+    background: rgba(255,255,255,0.9);
+    clip-path: polygon(20% 0%, 80% 0%, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0% 80%, 0% 20%);
+}
+
+.reminder-card h3 {
+    font-size: 19px;
+    color: #2c1e20;
+    margin-bottom: 12px;
+    font-weight: 700;
+}
+
+.reminder-card p {
+    font-size: 14px;
+    color: #5a4a4c;
+    line-height: 1.7;
+}
+
+/* === FOOTER === */
+footer {
+    background: #2c1e20;
+    color: #d0c0c2;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 50px 5% 30px;
+    flex-wrap: wrap;
+}
+
+.footer-brand {
+    max-width: 280px;
+}
+
+.footer-logo {
+    width: 48px;
+    height: 48px;
+    clip-path: circle(50% at 50% 50%);
+    object-fit: cover;
+    margin-bottom: 12px;
+}
+
+.footer-brand p {
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+.footer-links h4 {
+    color: #fff;
+    font-size: 16px;
+    margin-bottom: 14px;
+}
+
+.footer-links a {
+    display: block;
+    color: #d0c0c2;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 5px 0;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: #d68080;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding: 20px 5%;
+    text-align: center;
+    font-size: 13px;
+    color: #a09092;
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 900px) {
+    .login-container {
+        padding: 40px 28px;
+    }
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        gap: 12px;
+        padding: 16px 5%;
+    }
+
+    nav a {
+        margin: 0 8px;
+        padding: 6px 12px;
+        font-size: 14px;
+    }
+
+    .page-banner h1 {
+        font-size: 32px;
+    }
+
+    .login-container {
+        padding: 30px 20px;
+    }
+
+    .form-header h2 {
+        font-size: 24px;
+    }
+
+    .form-options {
+        flex-direction: column;
+        gap: 12px;
+        align-items: flex-start;
+    }
+
+    .reminder-card {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-brand {
+        max-width: 100%;
+    }
+}
