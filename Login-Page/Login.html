@@ -10,7 +10,7 @@
 </head>
 <body>
 
-    <!-- HEADER -->
+
     <header>
         <div class="logo-area">
             <img src="../Assets/Companio (1).png" alt="Companio Logo" class="circle-clip">
@@ -24,31 +24,64 @@
         </nav>
     </header>
 
-    <!-- PAGE BANNER -->
+
     <section class="page-banner">
         <h1>Welcome Back</h1>
         <p>Sign in to your account to connect with your community.</p>
     </section>
 
-    <!-- LOGIN FORM -->
+
     <section class="login-section">
         <div class="login-container">
             <div class="form-header">
-                <h2>Sign In</h2>
+                <h2>Log In</h2>
                 <p>Enter your credentials to access your account.</p>
             </div>
 
+            
+            <div class="login-tabs">
+                <button class="tab-btn active" data-type="individual">Individual</button>
+                <button class="tab-btn" data-type="business">Business</button>
+            </div>
+
             <form id="login-form" novalidate>
-                <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input type="email" id="email" name="email" placeholder="e.g. john@email.com" required autocomplete="email">
-                    <span class="error-msg" id="email-error"></span>
+                
+                <div class="tab-fields" id="fields-individual">
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" placeholder="e.g. john@email.com" required autocomplete="email">
+                        <span class="error-msg" id="email-error"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" placeholder="Enter your password" required autocomplete="current-password">
+                        <span class="error-msg" id="password-error"></span>
+                    </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="password">Password</label>
-                    <input type="password" id="password" name="password" placeholder="Enter your password" required autocomplete="current-password">
-                    <span class="error-msg" id="password-error"></span>
+                
+                <div class="tab-fields hidden" id="fields-business">
+                    <div class="form-group">
+                        <label for="business-email">Business Email Address</label>
+                        <input type="email" id="business-email" name="business-email" placeholder="e.g. hello@business.com" autocomplete="email">
+                        <span class="error-msg" id="business-email-error"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="business-password">Password</label>
+                        <input type="password" id="business-password" name="business-password" placeholder="Enter your password" autocomplete="current-password">
+                        <span class="error-msg" id="business-password-error"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="business-name">Business Name</label>
+                        <input type="text" id="business-name" name="business-name" placeholder="e.g. Smith's Grocery">
+                        <span class="error-msg" id="business-name-error"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="abn">ABN (Optional)</label>
+                        <input type="text" id="abn" name="abn" placeholder="e.g. 12 345 678 901">
+                        <span class="error-msg" id="abn-error"></span>
+                    </div>
                 </div>
 
                 <div class="form-options">
@@ -72,7 +105,7 @@
         </div>
     </section>
 
-    <!-- FEATURES REMINDER -->
+
     <section class="features-reminder">
         <h2>Why Join Companio?</h2>
         <div class="reminder-grid">
@@ -94,7 +127,7 @@
         </div>
     </section>
 
-    <!-- FOOTER -->
+
     <footer>
         <div class="footer-content">
             <div class="footer-brand">

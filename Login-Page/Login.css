@@ -1,4 +1,4 @@
-/* === RESET & BASE === */
+
 * {
     margin: 0;
     padding: 0;
@@ -13,7 +13,7 @@ body {
     line-height: 1.6;
 }
 
-/* === HEADER === */
+
 header {
     background: #d68080;
     padding: 16px 5%;
@@ -78,7 +78,7 @@ nav a.cta-btn:hover {
     background: #f5e6e6;
 }
 
-/* === PAGE BANNER === */
+
 .page-banner {
     background: #d68080;
     color: #fff;
@@ -99,7 +99,7 @@ nav a.cta-btn:hover {
     margin: 0 auto;
 }
 
-/* === LOGIN SECTION === */
+
 .login-section {
     background: #faf5f2;
     padding: 80px 5%;
@@ -130,7 +130,44 @@ nav a.cta-btn:hover {
     color: #5a4a4c;
 }
 
-/* === FORM ELEMENTS === */
+
+.login-tabs {
+    display: flex;
+    gap: 0;
+    margin-bottom: 28px;
+    background: #faf5f2;
+    border-radius: 12px;
+    padding: 4px;
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 12px 20px;
+    border: none;
+    background: transparent;
+    font-size: 15px;
+    font-weight: 600;
+    color: #5a4a4c;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: all 0.25s;
+    font-family: inherit;
+}
+
+.tab-btn.active {
+    background: #d68080;
+    color: #fff;
+    box-shadow: 0 2px 8px rgba(214,128,128,0.3);
+}
+
+.tab-btn:hover:not(.active) {
+    color: #d68080;
+}
+
+.tab-fields.hidden {
+    display: none;
+}
+
 .form-group {
     margin-bottom: 20px;
 }
@@ -143,6 +180,7 @@ nav a.cta-btn:hover {
     margin-bottom: 6px;
 }
 
+.form-group input[type="text"],
 .form-group input[type="email"],
 .form-group input[type="password"] {
     width: 100%;
@@ -176,7 +214,7 @@ nav a.cta-btn:hover {
     min-height: 18px;
 }
 
-/* === FORM OPTIONS === */
+
 .form-options {
     display: flex;
     align-items: center;
@@ -210,7 +248,7 @@ nav a.cta-btn:hover {
     text-decoration: underline;
 }
 
-/* === BUTTONS === */
+
 .btn {
     display: inline-block;
     padding: 14px 36px;
@@ -239,7 +277,7 @@ nav a.cta-btn:hover {
     text-align: center;
 }
 
-/* === FORM DIVIDER === */
+
 .form-divider {
     display: flex;
     align-items: center;
@@ -260,7 +298,7 @@ nav a.cta-btn:hover {
     color: #a09092;
 }
 
-/* === SIGNUP PROMPT === */
+
 .signup-prompt {
     text-align: center;
     font-size: 14px;
@@ -277,7 +315,7 @@ nav a.cta-btn:hover {
     text-decoration: underline;
 }
 
-/* === FEATURES REMINDER === */
+
 .features-reminder {
     background: #fff;
     padding: 80px 5%;
@@ -371,7 +409,7 @@ nav a.cta-btn:hover {
     line-height: 1.7;
 }
 
-/* === FOOTER === */
+
 footer {
     background: #2c1e20;
     color: #d0c0c2;
@@ -431,7 +469,7 @@ footer {
     color: #a09092;
 }
 
-/* === RESPONSIVE === */
+
 @media (max-width: 900px) {
     .login-container {
         padding: 40px 28px;

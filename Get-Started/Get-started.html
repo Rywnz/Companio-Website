@@ -10,7 +10,6 @@
 </head>
 <body>
 
-    <!-- HEADER -->
     <header>
         <div class="logo-area">
             <img src="../Assets/Companio (1).png" alt="Companio Logo" class="circle-clip">
@@ -24,13 +23,13 @@
         </nav>
     </header>
 
-    <!-- PAGE BANNER -->
+   
     <section class="page-banner">
         <h1>Join Companio Today</h1>
         <p>Sign up in just a few steps and start connecting with your community.</p>
     </section>
 
-    <!-- ROLE SELECTOR -->
+    
     <section class="role-selector">
         <h2>I want to join as...</h2>
         <div class="role-grid">
@@ -38,11 +37,6 @@
                 <div class="role-icon icon-senior"></div>
                 <h3>A Senior</h3>
                 <p>Connect with people who share your interests, access emergency services, and order essentials with ease.</p>
-            </div>
-            <div class="role-card" data-role="volunteer">
-                <div class="role-icon icon-volunteer"></div>
-                <h3>A Volunteer</h3>
-                <p>Give your time to help seniors in your community. Make friends, share skills, and make a difference.</p>
             </div>
             <div class="role-card" data-role="partner">
                 <div class="role-icon icon-partner"></div>
@@ -52,17 +46,18 @@
         </div>
     </section>
 
-    <!-- SIGN-UP FORM -->
+    
     <section class="signup-section">
         <div class="form-container">
             <div class="form-header">
                 <h2>Create Your Account</h2>
-                <p class="form-step-text">Step <span id="step-indicator">1</span> of 3</p>
+                <p class="form-step-text" id="senior-form-label">Step <span id="step-indicator">1</span> of 3</p>
+                <p class="form-step-text hidden" id="business-form-label">Business Registration</p>
             </div>
+
 
             <form id="signup-form" novalidate>
 
-                <!-- STEP 1: Personal Info -->
                 <div class="form-step" id="step-1">
                     <h3>Personal Information</h3>
                     <div class="form-group">
@@ -93,7 +88,6 @@
                     <button type="button" class="btn btn-primary next-step" data-next="2">Next Step</button>
                 </div>
 
-                <!-- STEP 2: Interests -->
                 <div class="form-step hidden" id="step-2">
                     <h3>Your Interests</h3>
                     <p class="form-hint">Select all the activities and topics you're interested in.</p>
@@ -134,10 +128,6 @@
                             <input type="checkbox" name="interests" value="yoga">
                             <span>Yoga & Meditation</span>
                         </label>
-                        <label class="interest-tag">
-                            <input type="checkbox" name="interests" value="volunteering">
-                            <span>Volunteering</span>
-                        </label>
                     </div>
                     <div class="form-nav">
                         <button type="button" class="btn btn-secondary prev-step" data-prev="1">Back</button>
@@ -145,10 +135,9 @@
                     </div>
                 </div>
 
-                <!-- STEP 3: Emergency Contact & Password -->
                 <div class="form-step hidden" id="step-3">
                     <h3>Almost Done!</h3>
-                    
+
                     <div class="form-group">
                         <label for="password">Create a Password</label>
                         <input type="password" id="password" name="password" placeholder="At least 8 characters" minlength="8" required>
@@ -162,7 +151,7 @@
 
                     <h4 class="emergency-heading">Emergency Contact (Optional)</h4>
                     <p class="form-hint">Someone we can notify in case of an emergency.</p>
-                    
+
                     <div class="form-group">
                         <label for="emergency-name">Contact Name</label>
                         <input type="text" id="emergency-name" name="emergency-name" placeholder="e.g. Jane Smith">
@@ -171,7 +160,7 @@
                         <label for="emergency-phone">Contact Phone</label>
                         <input type="tel" id="emergency-phone" name="emergency-phone" placeholder="e.g. 0411 222 333">
                     </div>
-                    
+
                     <div class="form-group">
                         <label class="checkbox-label">
                             <input type="checkbox" id="terms" name="terms" required>
@@ -187,10 +176,81 @@
                 </div>
 
             </form>
+
+
+            <form id="business-signup-form" class="hidden" novalidate>
+                <div class="form-group">
+                    <label for="business-owner-name">Your Full Name</label>
+                    <input type="text" id="business-owner-name" name="business-owner-name" placeholder="e.g. John Smith" required>
+                    <span class="error-msg"></span>
+                </div>
+                <div class="form-group">
+                    <label for="business-name">Business Name</label>
+                    <input type="text" id="business-name" name="business-name" placeholder="e.g. Smith's Grocery" required>
+                    <span class="error-msg"></span>
+                </div>
+                <div class="form-group">
+                    <label for="business-email">Business Email Address</label>
+                    <input type="email" id="business-email" name="business-email" placeholder="e.g. hello@business.com" required>
+                    <span class="error-msg"></span>
+                </div>
+                <div class="form-group">
+                    <label for="business-phone">Business Phone Number</label>
+                    <input type="tel" id="business-phone" name="business-phone" placeholder="e.g. 02 9123 4567" required>
+                    <span class="error-msg"></span>
+                </div>
+                <div class="form-group">
+                    <label for="business-address">Business Address</label>
+                    <input type="text" id="business-address" name="business-address" placeholder="e.g. 123 Main St, Surry Hills" required>
+                    <span class="error-msg"></span>
+                </div>
+                <div class="form-group">
+                    <label for="business-abn">ABN (Optional)</label>
+                    <input type="text" id="business-abn" name="business-abn" placeholder="e.g. 12 345 678 901">
+                    <span class="error-msg"></span>
+                </div>
+                <div class="form-group">
+                    <label for="business-category">Business Category</label>
+                    <select id="business-category" name="business-category" required>
+                        <option value="" disabled selected>Select a category</option>
+                        <option value="grocery">Grocery & Food</option>
+                        <option value="pharmacy">Pharmacy & Health</option>
+                        <option value="transport">Transport & Delivery</option>
+                        <option value="services">Home Services</option>
+                        <option value="wellness">Wellness & Care</option>
+                        <option value="retail">Retail & Shopping</option>
+                        <option value="other">Other</option>
+                    </select>
+                    <span class="error-msg"></span>
+                </div>
+                <div class="form-group">
+                    <label for="business-description">Brief Description of Services</label>
+                    <textarea id="business-description" name="business-description" placeholder="Tell us about the services or products you offer to seniors..." rows="3" required></textarea>
+                    <span class="error-msg"></span>
+                </div>
+                <div class="form-group">
+                    <label for="business-password">Create a Password</label>
+                    <input type="password" id="business-password" name="business-password" placeholder="At least 8 characters" minlength="8" required>
+                    <span class="error-msg"></span>
+                </div>
+                <div class="form-group">
+                    <label for="business-confirm-password">Confirm Password</label>
+                    <input type="password" id="business-confirm-password" name="business-confirm-password" placeholder="Re-enter your password" required>
+                    <span class="error-msg"></span>
+                </div>
+                <div class="form-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="business-terms" name="business-terms" required>
+                        <span>I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></span>
+                    </label>
+                    <span class="error-msg"></span>
+                </div>
+                <button type="submit" class="btn btn-primary btn-full">Register Business</button>
+            </form>
         </div>
     </section>
 
-    <!-- BENEFITS SECTION -->
+    
     <section class="benefits">
         <h2>What You Get When You Join</h2>
         <div class="benefits-grid">
@@ -217,7 +277,7 @@
         </div>
     </section>
 
-    <!-- SUCCESS OVERLAY -->
+    
     <div class="success-overlay hidden" id="success-overlay">
         <div class="success-card">
             <div class="success-icon">&#10003;</div>
@@ -227,7 +287,7 @@
         </div>
     </div>
 
-    <!-- FOOTER -->
+   
     <footer>
         <div class="footer-content">
             <div class="footer-brand">

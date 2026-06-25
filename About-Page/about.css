@@ -1,4 +1,4 @@
-/* === RESET & BASE === */
+
 * {
     margin: 0;
     padding: 0;
@@ -13,7 +13,7 @@ body {
     line-height: 1.6;
 }
 
-/* === HEADER === */
+
 header {
     background: #d68080;
     padding: 16px 5%;
@@ -72,7 +72,7 @@ nav a.cta-btn:hover {
     background: #f5e6e6;
 }
 
-/* === PAGE BANNER === */
+
 .page-banner {
     background: #d68080;
     color: #fff;
@@ -93,7 +93,7 @@ nav a.cta-btn:hover {
     margin: 0 auto;
 }
 
-/* === MISSION SECTION === */
+
 .mission {
     background: #fff;
     padding: 80px 5%;
@@ -148,7 +148,7 @@ nav a.cta-btn:hover {
     border-radius: 16px;
 }
 
-/* === STORY SECTION === */
+
 .story {
     background: #faf5f2;
     text-align: center;
@@ -179,7 +179,7 @@ nav a.cta-btn:hover {
     margin: 0 auto 18px;
 }
 
-/* === ANIMATIONS === */
+
 .animate-on-scroll {
     opacity: 0;
     transform: translateY(30px);
@@ -222,7 +222,7 @@ header.header-scrolled {
     box-shadow: 0 4px 20px rgba(0,0,0,0.15);
 }
 
-/* === VALUES SECTION === */
+
 .values {
     background: #fff;
     padding: 80px 5%;
@@ -322,7 +322,7 @@ header.header-scrolled {
     line-height: 1.7;
 }
 
-/* === TEAM SECTION === */
+
 .team {
     background: #faf5f2;
     padding: 80px 5%;
@@ -391,7 +391,7 @@ header.header-scrolled {
     line-height: 1.6;
 }
 
-/* === BUTTONS === */
+
 .btn {
     display: inline-block;
     padding: 14px 36px;
@@ -418,7 +418,7 @@ header.header-scrolled {
     font-size: 18px;
 }
 
-/* === CTA SECTION === */
+
 .cta-section {
     background: #d68080;
     color: #fff;
@@ -447,7 +447,7 @@ header.header-scrolled {
     background: #f5e6e6;
 }
 
-/* === FOOTER === */
+
 footer {
     background: #2c1e20;
     color: #d0c0c2;
@@ -507,7 +507,7 @@ footer {
     color: #a09092;
 }
 
-/* === RESPONSIVE === */
+
 @media (max-width: 900px) {
     .mission-content {
         flex-direction: column;

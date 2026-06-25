@@ -1,4 +1,4 @@
-// === SCROLL ANIMATIONS ===
+
 const observerOptions = {
     threshold: 0.15,
     rootMargin: '0px 0px -50px 0px'
@@ -13,40 +13,40 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-// Observe value cards
+
 document.querySelectorAll('.value-card').forEach(card => {
     card.classList.add('animate-on-scroll');
     observer.observe(card);
 });
 
-// Observe team cards
+
 document.querySelectorAll('.team-card').forEach(card => {
     card.classList.add('animate-on-scroll');
     observer.observe(card);
 });
 
-// Observe mission section
+
 const missionContent = document.querySelector('.mission-content');
 if (missionContent) {
     missionContent.classList.add('animate-on-scroll');
     observer.observe(missionContent);
 }
 
-// Observe story section
+
 const storySection = document.querySelector('.story');
 if (storySection) {
     storySection.classList.add('animate-on-scroll');
     observer.observe(storySection);
 }
 
-// Observe CTA section
+
 const ctaSection = document.querySelector('.cta-section');
 if (ctaSection) {
     ctaSection.classList.add('animate-on-scroll');
     observer.observe(ctaSection);
 }
 
-// === NAVBAR SCROLL EFFECT ===
+
 const header = document.querySelector('header');
 
 window.addEventListener('scroll', () => {
@@ -59,7 +59,7 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// === SMOOTH SCROLL FOR NAV LINKS ===
+
 document.querySelectorAll('nav a:not(.cta-btn)').forEach(link => {
     link.addEventListener('click', (e) => {
         const href = link.getAttribute('href');
@@ -70,11 +70,10 @@ document.querySelectorAll('nav a:not(.cta-btn)').forEach(link => {
                 target.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
         }
-        // If it's a regular link (like to home page), let it navigate normally
     });
 });
 
-// === TEAM IMAGE HOVER EFFECT ===
+
 document.querySelectorAll('.team-card').forEach(card => {
     card.addEventListener('mouseenter', () => {
         const img = card.querySelector('.team-img');
@@ -92,7 +91,6 @@ document.querySelectorAll('.team-card').forEach(card => {
     });
 });
 
-// === PAGE LOAD BANNER ANIMATION ===
 window.addEventListener('load', () => {
     const banner = document.querySelector('.page-banner');
     if (banner) {

@@ -1,4 +1,4 @@
-// === SCROLL ANIMATIONS ===
+
 const observerOptions = {
     threshold: 0.15,
     rootMargin: '0px 0px -50px 0px'
@@ -13,31 +13,26 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-// Observe role cards
 document.querySelectorAll('.role-card').forEach(card => {
     card.classList.add('animate-on-scroll');
     observer.observe(card);
 });
 
-// Observe benefit cards
 document.querySelectorAll('.benefit-card').forEach(card => {
     card.classList.add('animate-on-scroll');
     observer.observe(card);
 });
 
-// Observe form container
 const formContainer = document.querySelector('.form-container');
 if (formContainer) {
     formContainer.classList.add('animate-on-scroll');
     observer.observe(formContainer);
 }
 
-// === NAVBAR SCROLL EFFECT ===
-const header = document.querySelector('header');
 
+const header = document.querySelector('header');
 window.addEventListener('scroll', () => {
     const currentScroll = window.pageYOffset;
-    
     if (currentScroll > 80) {
         header.classList.add('header-scrolled');
     } else {
@@ -45,7 +40,6 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// === PAGE LOAD BANNER ANIMATION ===
 window.addEventListener('load', () => {
     const banner = document.querySelector('.page-banner');
     if (banner) {
@@ -53,20 +47,35 @@ window.addEventListener('load', () => {
     }
 });
 
-// === ROLE SELECTION ===
+
 const roleCards = document.querySelectorAll('.role-card');
 let selectedRole = null;
+const seniorForm = document.getElementById('signup-form');
+const businessForm = document.getElementById('business-signup-form');
+const seniorFormLabel = document.getElementById('senior-form-label');
+const businessFormLabel = document.getElementById('business-form-label');
 
 roleCards.forEach(card => {
     card.addEventListener('click', () => {
-        // Remove selected from all
         roleCards.forEach(c => c.classList.remove('selected'));
-        
-        // Add selected to clicked card
         card.classList.add('selected');
         selectedRole = card.dataset.role;
-        
-        // Scroll to form
+
+
+        if (selectedRole === 'partner') {
+            seniorForm.classList.add('hidden');
+            businessForm.classList.remove('hidden');
+            seniorFormLabel.classList.add('hidden');
+            businessFormLabel.classList.remove('hidden');
+        } else {
+            businessForm.classList.add('hidden');
+            seniorForm.classList.remove('hidden');
+            businessFormLabel.classList.add('hidden');
+            seniorFormLabel.classList.remove('hidden');
+
+            showStep(1);
+        }
+
         const formSection = document.querySelector('.signup-section');
         if (formSection) {
             formSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -74,39 +83,35 @@ roleCards.forEach(card => {
     });
 });
 
-// === FORM STEP NAVIGATION ===
+
 let currentStep = 1;
 const totalSteps = 3;
 
 function showStep(step) {
-    // Hide all steps
     document.querySelectorAll('.form-step').forEach(s => s.classList.add('hidden'));
-    
-    // Show the target step
+
     const targetStep = document.getElementById(`step-${step}`);
     if (targetStep) {
         targetStep.classList.remove('hidden');
     }
-    
-    // Update step indicator
+
     const indicator = document.getElementById('step-indicator');
     if (indicator) {
         indicator.textContent = step;
     }
-    
+
     currentStep = step;
-    
-    // Scroll to form top
+
     const formContainer = document.querySelector('.form-container');
     if (formContainer) {
         formContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 }
 
-// Validate step 1 fields
+
 function validateStep1() {
     let valid = true;
-    
+
     const fields = [
         { id: 'full-name', message: 'Please enter your full name' },
         { id: 'email', message: 'Please enter a valid email address' },
@@ -114,11 +119,11 @@ function validateStep1() {
         { id: 'dob', message: 'Please select your date of birth' },
         { id: 'location', message: 'Please enter your suburb or location' }
     ];
-    
+
     fields.forEach(field => {
         const input = document.getElementById(field.id);
         const errorSpan = input.parentElement.querySelector('.error-msg');
-        
+
         if (!input.value.trim()) {
             input.classList.add('error');
             errorSpan.textContent = field.message;
@@ -136,23 +141,21 @@ function validateStep1() {
             errorSpan.textContent = '';
         }
     });
-    
+
     return valid;
 }
 
-// Validate step 3 fields
+
 function validateStep3() {
     let valid = true;
-    
+
     const password = document.getElementById('password');
     const confirmPassword = document.getElementById('confirm-password');
     const terms = document.getElementById('terms');
-    
-    // Clear previous errors
+
     document.querySelectorAll('#step-3 .error-msg').forEach(el => el.textContent = '');
     document.querySelectorAll('#step-3 input.error').forEach(el => el.classList.remove('error'));
-    
-    // Validate password
+
     if (!password.value.trim()) {
         password.classList.add('error');
         password.parentElement.querySelector('.error-msg').textContent = 'Please create a password';
@@ -162,8 +165,7 @@ function validateStep3() {
         password.parentElement.querySelector('.error-msg').textContent = 'Password must be at least 8 characters';
         valid = false;
     }
-    
-    // Validate confirm password
+
     if (!confirmPassword.value.trim()) {
         confirmPassword.classList.add('error');
         confirmPassword.parentElement.querySelector('.error-msg').textContent = 'Please confirm your password';
@@ -173,13 +175,12 @@ function validateStep3() {
         confirmPassword.parentElement.querySelector('.error-msg').textContent = 'Passwords do not match';
         valid = false;
     }
-    
-    // Validate terms
+
     if (!terms.checked) {
         terms.closest('.form-group').querySelector('.error-msg').textContent = 'You must agree to the Terms of Service';
         valid = false;
     }
-    
+
     return valid;
 }
 
@@ -188,27 +189,23 @@ function isValidEmail(email) {
 }
 
 function isValidPhone(phone) {
-    // Allow Australian phone formats: 0412 345 678, +61412345678, 02 1234 5678
     const cleaned = phone.replace(/[\s\-\(\)]/g, '');
     return /^(\+?61|0)[0-9]{8,9}$/.test(cleaned);
 }
 
-// Next step buttons
+
 document.querySelectorAll('.next-step').forEach(btn => {
     btn.addEventListener('click', () => {
         const next = parseInt(btn.dataset.next);
-        
         if (currentStep === 1 && next === 2) {
             if (!validateStep1()) return;
         }
-        
         if (next <= totalSteps) {
             showStep(next);
         }
     });
 });
 
-// Previous step buttons
 document.querySelectorAll('.prev-step').forEach(btn => {
     btn.addEventListener('click', () => {
         const prev = parseInt(btn.dataset.prev);
@@ -218,12 +215,12 @@ document.querySelectorAll('.prev-step').forEach(btn => {
     });
 });
 
-// === REAL-TIME INPUT VALIDATION ===
-document.querySelectorAll('.form-group input').forEach(input => {
+
+document.querySelectorAll('#signup-form .form-group input').forEach(input => {
     input.addEventListener('blur', () => {
         const errorSpan = input.parentElement.querySelector('.error-msg');
         if (!errorSpan) return;
-        
+
         if (input.hasAttribute('required') && !input.value.trim()) {
             input.classList.add('error');
             errorSpan.textContent = 'This field is required';
@@ -232,9 +229,8 @@ document.querySelectorAll('.form-group input').forEach(input => {
             errorSpan.textContent = '';
         }
     });
-    
+
     input.addEventListener('input', () => {
-        // Clear error while typing
         const errorSpan = input.parentElement.querySelector('.error-msg');
         if (errorSpan && input.classList.contains('error')) {
             input.classList.remove('error');
@@ -243,21 +239,12 @@ document.querySelectorAll('.form-group input').forEach(input => {
     });
 });
 
-// === FORM SUBMISSION ===
-const form = document.getElementById('signup-form');
 
+const form = document.getElementById('signup-form');
 form.addEventListener('submit', (e) => {
     e.preventDefault();
-    
     if (!validateStep3()) return;
-    
-    // Check if a role was selected
-    if (!selectedRole) {
-        // Show a gentle reminder but don't block submission
-        // The role selector is above the form
-    }
-    
-    // Show success overlay
+
     const overlay = document.getElementById('success-overlay');
     if (overlay) {
         overlay.classList.remove('hidden');
@@ -265,7 +252,153 @@ form.addEventListener('submit', (e) => {
     }
 });
 
-// === CLOSE SUCCESS OVERLAY ON CLICK OUTSIDE ===
+
+function validateBusinessForm() {
+    let valid = true;
+
+    const fields = [
+        { id: 'business-owner-name', message: 'Please enter your full name' },
+        { id: 'business-name', message: 'Please enter your business name' },
+        { id: 'business-email', message: 'Please enter a valid email address', type: 'email' },
+        { id: 'business-phone', message: 'Please enter a phone number', type: 'phone' },
+        { id: 'business-address', message: 'Please enter your business address' },
+        { id: 'business-category', message: 'Please select a business category' },
+        { id: 'business-description', message: 'Please provide a brief description' },
+        { id: 'business-password', message: 'Please create a password', minLength: 8 },
+        { id: 'business-confirm-password', message: 'Passwords do not match', match: 'business-password' }
+    ];
+
+
+    document.querySelectorAll('#business-signup-form .error-msg').forEach(el => el.textContent = '');
+    document.querySelectorAll('#business-signup-form input.error, #business-signup-form select.error, #business-signup-form textarea.error').forEach(el => el.classList.remove('error'));
+
+    fields.forEach(field => {
+        const input = document.getElementById(field.id);
+        if (!input) return;
+        const errorSpan = input.parentElement.querySelector('.error-msg');
+        if (!errorSpan) return;
+
+        if (field.type === 'email') {
+            if (!input.value.trim()) {
+                input.classList.add('error');
+                errorSpan.textContent = 'Business email is required';
+                valid = false;
+            } else if (!isValidEmail(input.value)) {
+                input.classList.add('error');
+                errorSpan.textContent = 'Please enter a valid email address';
+                valid = false;
+            } else {
+                input.classList.remove('error');
+                errorSpan.textContent = '';
+            }
+        } else if (field.type === 'phone') {
+            if (!input.value.trim()) {
+                input.classList.add('error');
+                errorSpan.textContent = 'Phone number is required';
+                valid = false;
+            } else if (!isValidPhone(input.value)) {
+                input.classList.add('error');
+                errorSpan.textContent = 'Please enter a valid phone number';
+                valid = false;
+            } else {
+                input.classList.remove('error');
+                errorSpan.textContent = '';
+            }
+        } else if (field.match) {
+            const matchInput = document.getElementById(field.match);
+            if (!input.value.trim()) {
+                input.classList.add('error');
+                errorSpan.textContent = 'Please confirm your password';
+                valid = false;
+            } else if (input.value !== matchInput.value) {
+                input.classList.add('error');
+                errorSpan.textContent = field.message;
+                valid = false;
+            } else {
+                input.classList.remove('error');
+                errorSpan.textContent = '';
+            }
+        } else if (field.minLength) {
+            if (!input.value.trim()) {
+                input.classList.add('error');
+                errorSpan.textContent = field.message;
+                valid = false;
+            } else if (input.value.length < field.minLength) {
+                input.classList.add('error');
+                errorSpan.textContent = `Password must be at least ${field.minLength} characters`;
+                valid = false;
+            } else {
+                input.classList.remove('error');
+                errorSpan.textContent = '';
+            }
+        } else {
+            if (!input.value.trim() || input.value === '' || (input.tagName === 'SELECT' && !input.value)) {
+                input.classList.add('error');
+                errorSpan.textContent = field.message;
+                valid = false;
+            } else {
+                input.classList.remove('error');
+                errorSpan.textContent = '';
+            }
+        }
+    });
+
+
+    const termsCheck = document.getElementById('business-terms');
+    const termsError = termsCheck.closest('.form-group').querySelector('.error-msg');
+    if (!termsCheck.checked) {
+        termsError.textContent = 'You must agree to the Terms of Service';
+        valid = false;
+    } else {
+        termsError.textContent = '';
+    }
+
+    return valid;
+}
+
+
+document.querySelectorAll('#business-signup-form input, #business-signup-form select, #business-signup-form textarea').forEach(input => {
+    input.addEventListener('blur', () => {
+        if (selectedRole !== 'partner') return;
+        const errorSpan = input.parentElement.querySelector('.error-msg');
+        if (!errorSpan) return;
+
+        if (input.hasAttribute('required') && !input.value.trim()) {
+            input.classList.add('error');
+            errorSpan.textContent = 'This field is required';
+        } else {
+            input.classList.remove('error');
+            errorSpan.textContent = '';
+        }
+    });
+
+    input.addEventListener('input', () => {
+        const errorSpan = input.parentElement.querySelector('.error-msg');
+        if (errorSpan && input.classList.contains('error')) {
+            input.classList.remove('error');
+            errorSpan.textContent = '';
+        }
+    });
+});
+
+
+const businessFormEl = document.getElementById('business-signup-form');
+businessFormEl.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    if (!validateBusinessForm()) return;
+
+    const overlay = document.getElementById('success-overlay');
+    if (overlay) {
+
+        overlay.querySelector('h2').textContent = 'Business Registered!';
+        overlay.querySelector('p').textContent = 'Your business account has been created successfully. We\'ll review your details and get back to you within 2-3 business days.';
+        overlay.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+    }
+});
+
+
 const successOverlay = document.getElementById('success-overlay');
 if (successOverlay) {
     successOverlay.addEventListener('click', (e) => {
@@ -276,7 +409,7 @@ if (successOverlay) {
     });
 }
 
-// === SMOOTH SCROLL FOR NAV LINKS ===
+
 document.querySelectorAll('nav a:not(.cta-btn)').forEach(link => {
     link.addEventListener('click', (e) => {
         const href = link.getAttribute('href');

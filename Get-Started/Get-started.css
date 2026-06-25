@@ -1,4 +1,4 @@
-/* === RESET & BASE === */
+
 * {
     margin: 0;
     padding: 0;
@@ -13,7 +13,7 @@ body {
     line-height: 1.6;
 }
 
-/* === HEADER === */
+
 header {
     background: #d68080;
     padding: 16px 5%;
@@ -78,7 +78,7 @@ nav a.cta-btn:hover {
     background: #f5e6e6;
 }
 
-/* === PAGE BANNER === */
+
 .page-banner {
     background: #d68080;
     color: #fff;
@@ -99,7 +99,7 @@ nav a.cta-btn:hover {
     margin: 0 auto;
 }
 
-/* === BANNER ANIMATION === */
+
 .page-banner.banner-animate h1 {
     animation: fadeInDown 0.8s ease-out;
 }
@@ -118,7 +118,7 @@ nav a.cta-btn:hover {
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* === SCROLL ANIMATIONS === */
+
 .animate-on-scroll {
     opacity: 0;
     transform: translateY(30px);
@@ -130,7 +130,7 @@ nav a.cta-btn:hover {
     transform: translateY(0);
 }
 
-/* === ROLE SELECTOR === */
+
 .role-selector {
     background: #fff;
     padding: 80px 5%;
@@ -232,7 +232,7 @@ nav a.cta-btn:hover {
     line-height: 1.7;
 }
 
-/* === SIGN-UP FORM === */
+
 .signup-section {
     background: #faf5f2;
     padding: 80px 5%;
@@ -270,6 +270,10 @@ nav a.cta-btn:hover {
     margin-bottom: 24px;
 }
 
+.hidden {
+    display: none !important;
+}
+
 .form-step.hidden {
     display: none;
 }
@@ -290,7 +294,9 @@ nav a.cta-btn:hover {
 .form-group input[type="email"],
 .form-group input[type="tel"],
 .form-group input[type="date"],
-.form-group input[type="password"] {
+.form-group input[type="password"],
+.form-group select,
+.form-group textarea {
     width: 100%;
     padding: 12px 16px;
     border: 2px solid #e8d5d5;
@@ -303,13 +309,31 @@ nav a.cta-btn:hover {
     outline: none;
 }
 
-.form-group input:focus {
+.form-group select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%235a4a4c' d='M1 1l5 5 5-5'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 14px center;
+    padding-right: 36px;
+    cursor: pointer;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
     border-color: #d68080;
     box-shadow: 0 0 0 3px rgba(214,128,128,0.15);
     background: #fff;
 }
 
-.form-group input.error {
+.form-group input.error,
+.form-group select.error,
+.form-group textarea.error {
     border-color: #e74c3c;
     background: #fff5f5;
 }
@@ -328,7 +352,7 @@ nav a.cta-btn:hover {
     margin-bottom: 20px;
 }
 
-/* === INTERESTS GRID === */
+
 .interests-grid {
     display: flex;
     flex-wrap: wrap;
@@ -373,7 +397,7 @@ nav a.cta-btn:hover {
     background: #fff;
 }
 
-/* === FORM NAVIGATION === */
+
 .form-nav {
     display: flex;
     gap: 12px;
@@ -381,7 +405,7 @@ nav a.cta-btn:hover {
     margin-top: 28px;
 }
 
-/* === BUTTONS === */
+
 .btn {
     display: inline-block;
     padding: 14px 36px;
@@ -416,12 +440,17 @@ nav a.cta-btn:hover {
     color: #fff;
 }
 
+.btn-full {
+    width: 100%;
+    text-align: center;
+}
+
 .btn-lg {
     padding: 16px 48px;
     font-size: 18px;
 }
 
-/* === EMERGENCY HEADING === */
+
 .emergency-heading {
     font-size: 18px;
     color: #2c1e20;
@@ -429,7 +458,7 @@ nav a.cta-btn:hover {
     margin-bottom: 6px;
 }
 
-/* === CHECKBOX LABEL === */
+
 .checkbox-label {
     display: flex;
     align-items: flex-start;
@@ -452,7 +481,7 @@ nav a.cta-btn:hover {
     text-decoration: underline;
 }
 
-/* === BENEFITS SECTION === */
+
 .benefits {
     background: #fff;
     padding: 80px 5%;
@@ -554,7 +583,7 @@ nav a.cta-btn:hover {
     line-height: 1.7;
 }
 
-/* === SUCCESS OVERLAY === */
+
 .success-overlay {
     position: fixed;
     top: 0;
@@ -614,7 +643,7 @@ nav a.cta-btn:hover {
     line-height: 1.7;
 }
 
-/* === FOOTER === */
+
 footer {
     background: #2c1e20;
     color: #d0c0c2;
@@ -674,7 +703,7 @@ footer {
     color: #a09092;
 }
 
-/* === RESPONSIVE === */
+
 @media (max-width: 900px) {
     .form-container {
         padding: 40px 28px;
