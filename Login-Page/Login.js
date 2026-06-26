@@ -250,7 +250,7 @@ loginForm.addEventListener('submit', async (e) => {
             sessionStorage.setItem('companio_business_name', businessNameInput.value.trim());
         }
 
-        window.location.href = '../Home%20Page/index.html';
+        window.location.href = '../index.html';
 
     } catch (error) {
         const targetError = activeLoginType === 'individual' ? emailError : businessEmailError;
